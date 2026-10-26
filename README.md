@@ -7,6 +7,67 @@ notes, audit trail) through a *governed, stateful, DAG-based* agent pipeline. Th
 Principle: **agents propose, the engine disposes, humans own approvals and final quality.** Agents never write to the workspace;
 every proposal passes policy → (human approval) → commit → exit gates before it becomes state.
 
+# Agentic Engineering Workflow
+
+This document describes how a human engineer works with an orchestrated team of AI agents to turn a requirement into engineering deliverables.
+
+## Overview
+
+```text
+Human / Engineer
+      │
+      ▼
+Orchestrator
+      │
+      ▼
+┌──────────────────────┬──────────────────────────┐
+│ Requirements agent   │ Design agent             │
+├──────────────────────┼──────────────────────────┤
+│ Implementation agent │ Testing and review agents│
+└──────────────────────┴──────────────────────────┘
+      │
+      ▼
+Engineering deliverables
+```
+
+## Roles
+
+### Human / Engineer
+Provides the requirement and approves important decisions.
+
+### Orchestrator
+Plans the work, coordinates agents, checks dependencies, handles failures and tracks progress.
+
+### Specialist Agents
+
+| Agent | Responsibility |
+|-------|----------------|
+| **Requirements agent** | Clarifies what needs to be built |
+| **Design agent** | Plans components and APIs |
+| **Implementation agent** | Produces or proposes code changes |
+| **Testing and review agents** | Validate behavior and identify risks |
+
+## Engineering Deliverables
+
+The workflow produces:
+
+- Code
+- Tests
+- API definitions
+- Documentation
+- Validation results
+- Release recommendation
+
+## Flow
+
+1. The **human/engineer** provides a requirement.
+2. The **orchestrator** plans the work and delegates to specialist agents.
+3. The **requirements** and **design** agents define what to build and how.
+4. The **implementation** agent produces or proposes code changes.
+5. The **testing and review** agents validate behavior and flag risks.
+6. The orchestrator assembles the **engineering deliverables** and the human approves key decisions.
+
+
 ## Setup
 
 ```bash
